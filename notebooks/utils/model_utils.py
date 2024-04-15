@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import roc_auc_score, roc_curve, accuracy_score, log_loss, make_scorer, f1_score, precision_score, recall_score
 
-
+import lightgbm as lgb
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
@@ -18,30 +18,34 @@ from sklearn.model_selection import GridSearchCV
 classifiers = [
     SVC(probability=True),
     LogisticRegression(),
-    DecisionTreeClassifier(),
     RandomForestClassifier(),
-    AdaBoostClassifier(),
+    AdaBoostClassifier(algorithm='SAMME'),
 ]
 
-def preprocessor(X_train):
+def preprocessor(X):
+    '''
+     performs preprocessing
+    '''
     numeric_transformer = Pipeline(
     steps=[("imputer", SimpleImputer(strategy="median")), ("scaler", MinMaxScaler())]
     )
     preprocessor = ColumnTransformer(
-    transformers=[("num", numeric_transformer, X_train.columns)]
+    transformers=[("num", numeric_transformer, X.columns)]
     )
     return preprocessor
 
 
 def best_params_models():
+    # SVC=False, LR=False, RandomForest=False, Adaboost=False
+    '''
+        defines the best hyperparameters for the model using Grid search.
+    '''
     parameters = [{'kernel':('linear', 'rbf'), 'C':[1, 2, 10]}], # SVC
-    [{}], # LogisticRegression
-    [{}], # DecisionTreeClassifier
-    [{}], # RandoForestClassifier
-    [{}], # AdaBoostClassifier
-    [{}], # LightGBM
-    [{}], # SVM
-    [{}], # Neural network
+    [{'penalty': ('l1','l2', 'elasticnet'), 'C':[1, 2, 10], 
+      'solver':('bfgs', 'liblinear', 'newton-cg', 'newton-cholesky', 'saga')}], # LogisticRegression
+    [{'n_estimators': [50, 100, 200], 'criterion': ('gini', 'entropy', 'log_loss')}], # RandomForestClassifier
+    [{'n_estimators': [25, 50, 100,], 'learning_rate':  (0.1, 0.5, 1.0)}], # AdaBoostClassifier
+    #[{}], # LightGBM
     scores = {'accuracy' :make_scorer(accuracy_score),
         'recall'   :make_scorer(recall_score),
         'precision':make_scorer(precision_score),
@@ -59,6 +63,9 @@ def best_params_models():
 
 
 def validation_clf_models(X_train, X_test, y_train, y_test):
+    '''
+     performs model validation with scores.
+    '''
     for classifier in classifiers:
         pipe = Pipeline(steps=[("preprocessor", preprocessor(X_train=X_train)), ("classifier", classifier)])
         
@@ -78,6 +85,9 @@ def validation_clf_models(X_train, X_test, y_train, y_test):
         print('-'*50)
 
 def plot_validation_clf_models(X_train, X_test, y_train, y_test):
+    '''
+     Plot Score of models with ROC Curve
+    '''
     for classifier in classifiers:
         pipe = Pipeline(steps=[("preprocessor", preprocessor(X_train=X_train)), ("classifier", classifier)])
         
@@ -92,6 +102,8 @@ def plot_validation_clf_models(X_train, X_test, y_train, y_test):
     plt.title('Comparando modelos ROC-CURVE')
     plt.savefig("img/Comparando modelos ROC-CURVE")
     plt.legend(loc="lower right")
+
+
 def evaluate():
     pass
        
