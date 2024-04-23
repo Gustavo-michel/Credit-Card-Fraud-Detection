@@ -1,8 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import roc_auc_score, roc_curve, log_loss, make_scorer, f1_score
+from sklearn.metrics import roc_auc_score, roc_curve, log_loss, make_scorer, f1_score, classification_report, confusion_matrix
 from sklearn import metrics
 
 from sklearn.svm import SVC
@@ -109,8 +110,12 @@ def plot_validation_clf_models(X_train, X_test, y_train, y_test):
     plt.savefig("img/Comparando modelos ROC-CURVE")
 
 
-def evaluate():
-    # print(confusion_matrix(Y_test, predictions))
-    # print(classification_report(Y_test, predictions))
-    pass
+def evaluate(y_test, predictions):
+    confusionMatrix = confusion_matrix(y_test, predictions)
+    sns.heatmap(confusionMatrix, cmap="Blues", annot=True)
+    plt.title("Matriz de confusão")
+    print("-"*50)
+    print(classification_report(y_test, predictions))
+    print("-"*50)
+    print(f"F1 Score test: {f1_score(y_test, predictions):.3f}")
        
