@@ -1,0 +1,111 @@
+/* Estilos para o layout geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #21698aab;
+    padding: 8px;
+    background-image: linear-gradient(to bottom, #333, #b2b2b283);
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 0px;
+    padding: 0px 15px;
+    border-right: 1px solid #293c4f;
+}
+
+nav ul li:last-child {
+    border-right: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f2f2f2;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    color:  #ffcc00;
+}
+
+.page-content {
+    padding: 30px;
+}
+
+ul li {
+    color: #f2f2f2;
+}
+
+
+form {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #e9f065;
+    color: #000000;
+    padding: 15px 30px;
+    cursor: pointer;
+}
+
+h1 {
+    text-align: center;
+}
+
