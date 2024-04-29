@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecção de Fraudes</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Detecção de Fraudes</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">Dash</a></li>
+            <li><a href="form">form</a></li>
+            <li><a href="model">Model</a></li>
+        </ul>
+    </nav>
+    <form action="/form" method="post">
+        <label for="correlacao_positiva1">Correlação Positiva 1:</label>
+        <input type="text" id="correlacao_positiva1" name="correlacao_positiva1" required>
+        <label for="correlacao_negativa1">Correlação Negativa 1:</label>
+        <input type="text" id="correlacao_negativa1" name="correlacao_negativa1" required>
+        <label for="correlacao_positiva2">Correlação Positiva 2:</label>
+        <input type="text" id="correlacao_positiva2" name="correlacao_positiva2" required>
+        <label for="correlacao_negativa2">Correlação Negativa 2:</label>
+        <input type="text" id="correlacao_negativa2" name="correlacao_negativa2" required>
+        <input type="submit" value="Enviar">
+    </form>
+    <h1>
+        {{ result }}
+    </h1>
+</body>
+</html>
