@@ -95,16 +95,6 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-button {
-    display: inline-block;
-    margin: 0 auto;
-    text-align: center;
-    background-color: #e9f065;
-    color: #000000;
-    padding: 15px 30px;
-    cursor: pointer;
-}
-
 h1 {
     text-align: center;
 }
