@@ -55,6 +55,8 @@ O código-fonte está disponível no repositório do GitHub. Para instalar as de
 ```python
 pip install -r requirements.txt
 ```
+No app.py execute o codigo no servidor.
+
 ## Acesso ao Modelo
 O modelo treinado pode ser acessado através do site oficial do projeto. Para carregar o modelo usando a biblioteca pickle em Python, utilize o seguinte código:
 
