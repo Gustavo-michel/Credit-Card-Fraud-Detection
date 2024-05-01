@@ -71,3 +71,5 @@ resultado = model.predict(dados)
 ```
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request ao repositório.
+
+DashBoard com power BI estará presente no projeto em breve.
