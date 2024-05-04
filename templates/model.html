@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Download</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<style>
+    button {
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #e9f065;
+        color: #000000;
+        padding: 15px 30px;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+    div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  </style>
+<body>
+    <header>
+        <h1>Detecção de Fraudes</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Dash</a></li>
+            <li><a href="form">form</a></li>
+            <li><a href="model">Model</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Download do modelo</h1>
+        <br>
+        <a href="../notebooks/model/fraud_detection_clf.sav" download>
+        <div>
+            <button>Baixar Arquivo</button>
+        </div>
+    </main>
+</body>
+</html>
